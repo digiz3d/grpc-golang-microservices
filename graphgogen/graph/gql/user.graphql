@@ -1,0 +1,21 @@
+type User {
+  id: ID!
+  username: String!
+  shows: [Show!]!
+}
+
+extend type Query {
+  user(id: ID!): User!
+}
+
+input CreateUserInput {
+  username: String!
+}
+
+type CreateUserPayload {
+  user: User
+}
+
+extend type Mutation {
+  createUser(input: CreateUserInput!): CreateUserPayload!
+}

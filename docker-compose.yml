@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  graphgogen:
+    build: ./graphgogen
+    ports:
+      - "3000:3000"
+    links:
+      - redis
+    environment:
+      - PORT=3000
+      - REDIS_ADDR=redis:6379
+      - REDIS_DB=0
+  auctions:
+    build: ./auctions
+    ports:
+      - "3001:3001"
+    links:
+      - redis
+    environment:
+      - PORT=3001
+      - REDIS_ADDR=redis:6379
+      - REDIS_DB=1
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"

@@ -1,0 +1,28 @@
+type Show {
+  id: ID!
+  name: String!
+  description: String
+  user: User!
+}
+
+extend type Query {
+  show(id: ID!): Show!
+}
+
+input CreateShowInput {
+  name: String!
+  description: String
+  userId: ID!
+}
+
+type CreateShowPayload {
+  show: Show!
+}
+
+extend type Mutation {
+  createShow(input: CreateShowInput!): CreateShowPayload!
+}
+
+extend type Subscription {
+  onCreateShow: CreateShowPayload!
+}
