@@ -4,7 +4,7 @@ package graph
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
-	"github.com/digiz3d/graphgogen/graph/generated"
+	"gateway/graph/generated"
 )
 
 // Mutation returns generated.MutationResolver implementation.

@@ -1,7 +1,8 @@
 package graph
 
 import (
-	"github.com/digiz3d/graphgogen/graph/model"
+	"gateway/graph/model"
+
 	goredis "github.com/go-redis/redis/v9"
 )
 

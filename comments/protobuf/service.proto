@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package comments;
+
+option go_package = "protobuf/generated";
+
+service Comment {
+    rpc AddComment (AddCommentRequest) returns (AddCommentReply) {}
+}
+
+message AddCommentRequest {
+    int64 showId = 1;
+    int64 userId = 2;
+    string text = 3;
+}
+
+message AddCommentReply {
+    string id = 1;
+    int64 showId = 2;
+    int64 userId = 3;
+    string text = 4;
+}

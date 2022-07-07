@@ -6,9 +6,9 @@ package graph
 import (
 	"context"
 	"fmt"
+	"gateway/graph/generated"
+	"gateway/graph/model"
 
-	"github.com/digiz3d/graphgogen/graph/generated"
-	"github.com/digiz3d/graphgogen/graph/model"
 	"github.com/google/uuid"
 )
 

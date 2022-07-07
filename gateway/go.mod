@@ -1,4 +1,4 @@
-module github.com/digiz3d/graphgogen
+module gateway
 
 go 1.18
 

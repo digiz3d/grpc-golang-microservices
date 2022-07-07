@@ -9,13 +9,14 @@ import (
 	"strconv"
 	"time"
 
+	"gateway/graph"
+	"gateway/graph/generated"
+	"gateway/graph/model"
+
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/extension"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
 	"github.com/99designs/gqlgen/graphql/playground"
-	"github.com/digiz3d/graphgogen/graph"
-	"github.com/digiz3d/graphgogen/graph/generated"
-	"github.com/digiz3d/graphgogen/graph/model"
 	goredis "github.com/go-redis/redis/v9"
 	"github.com/gorilla/websocket"
 	"github.com/rs/cors"

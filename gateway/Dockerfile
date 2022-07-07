@@ -5,5 +5,5 @@ RUN ["go", "build"]
 
 FROM golang:1.18-alpine as release
 WORKDIR /bin
-COPY --from=build /app/graphgogen .
-CMD ["graphgogen"]
+COPY --from=build /app/gateway .
+CMD ["gateway"]

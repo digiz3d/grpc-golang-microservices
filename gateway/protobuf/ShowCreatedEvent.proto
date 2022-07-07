@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package graphgogen;
+package gateway;
 
 option go_package = "protobuf/generated";
 

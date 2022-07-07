@@ -1,4 +1,4 @@
-# Graphgogen
+# Gateway
 
 ## Usage
 

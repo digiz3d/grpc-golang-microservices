@@ -6,11 +6,11 @@ package graph
 import (
 	"context"
 	"fmt"
+	"gateway/graph/generated"
+	"gateway/graph/model"
+	protogen "gateway/protobuf/generated"
 	"log"
 
-	"github.com/digiz3d/graphgogen/graph/generated"
-	"github.com/digiz3d/graphgogen/graph/model"
-	protogen "github.com/digiz3d/graphgogen/protobuf/generated"
 	"github.com/google/uuid"
 	"google.golang.org/protobuf/proto"
 )
