@@ -2,6 +2,21 @@
 
 package model
 
+type AddCommentInput struct {
+	Text string `json:"text"`
+}
+
+type AddCommentPayload struct {
+	Comment *Comment `json:"comment"`
+}
+
+type Comment struct {
+	ID     string `json:"id"`
+	UserID string `json:"userId"`
+	ShowID string `json:"showId"`
+	Text   string `json:"text"`
+}
+
 type CreateShowInput struct {
 	Name        string  `json:"name"`
 	Description *string `json:"description"`

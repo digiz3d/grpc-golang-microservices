@@ -13,6 +13,8 @@ import (
 	"gateway/graph/generated"
 	"gateway/graph/model"
 
+	pbComments "services/comments/protobuf/generated"
+
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/extension"
 	"github.com/99designs/gqlgen/graphql/handler/transport"
@@ -20,6 +22,8 @@ import (
 	goredis "github.com/go-redis/redis/v9"
 	"github.com/gorilla/websocket"
 	"github.com/rs/cors"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 const defaultPort = "3000"
@@ -47,10 +51,23 @@ func main() {
 
 	redis := goredis.NewClient(&goredis.Options{Addr: redisAddr, ReadTimeout: time.Second * 60, DB: DB})
 
+	var opts []grpc.DialOption
+	opts = append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	connCommentService, err := grpc.Dial(os.Getenv("SERVICE_COMMENTS_ADDR"), opts...)
+
+	if err != nil {
+		log.Fatalf("failed to dial: %v", err)
+		return
+	}
+	log.Printf("ok dialed")
+
+	commentServiceClient := pbComments.NewCommentClient(connCommentService)
+
 	srv := handler.New(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{
+		CommentsService: &commentServiceClient,
+		Redis:           redis,
 		ShowsRepository: make(map[string]*model.Show),
 		UsersRepository: make(map[string]*model.User),
-		Redis:           redis,
 	}}))
 
 	srv.AddTransport(transport.POST{})

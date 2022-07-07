@@ -9,14 +9,14 @@ service Comment {
 }
 
 message AddCommentRequest {
-    int64 showId = 1;
-    int64 userId = 2;
+    string showId = 1;
+    string userId = 2;
     string text = 3;
 }
 
 message AddCommentReply {
     string id = 1;
-    int64 showId = 2;
-    int64 userId = 3;
+    string showId = 2;
+    string userId = 3;
     string text = 4;
 }

@@ -1,0 +1,18 @@
+type Comment {
+  id: ID!
+  userId: ID!
+  showId: ID!
+  text: String!
+}
+
+input AddCommentInput {
+  text: String!
+}
+
+type AddCommentPayload {
+  comment: Comment!
+}
+
+extend type Mutation {
+  addComment(input: AddCommentInput!): AddCommentPayload!
+}

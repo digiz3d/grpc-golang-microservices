@@ -12,14 +12,14 @@ import (
 
 type comment struct {
 	ID     string
-	showId int64
-	userId int64
+	showId string
+	userId string
 	text   string
 }
 
 type commentsServer struct {
 	pb.UnimplementedCommentServer
-	commentsPerShow map[int64][]*comment
+	commentsPerShow map[string][]*comment
 }
 
 func (s *commentsServer) AddComment(ctx context.Context, req *pb.AddCommentRequest) (*pb.AddCommentReply, error) {
@@ -29,7 +29,7 @@ func (s *commentsServer) AddComment(ctx context.Context, req *pb.AddCommentReque
 }
 
 func newServer() *commentsServer {
-	s := &commentsServer{commentsPerShow: make(map[int64][]*comment)}
+	s := &commentsServer{commentsPerShow: make(map[string][]*comment)}
 	return s
 }
 

@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   gateway:
-    build: ./gateway
+    build:
+      context: .
+      dockerfile: ./gateway/Dockerfile
     ports:
       - "3000:3000"
     links:
@@ -11,8 +13,11 @@ services:
       - PORT=3000
       - REDIS_ADDR=redis:6379
       - REDIS_DB=0
+      - SERVICE_COMMENTS_ADDR=comments:3001
   comments:
-    build: ./comments
+    build:
+      context: .
+      dockerfile: ./comments/Dockerfile
     ports:
       - "3001:3001"
     environment:
