@@ -7,8 +7,17 @@ import (
 	"context"
 	"fmt"
 	"gateway/graph/model"
+	pbComments "services/comments/protobuf/generated"
 )
 
 func (r *mutationResolver) AddComment(ctx context.Context, input model.AddCommentInput) (*model.AddCommentPayload, error) {
-	panic(fmt.Errorf("not implemented"))
+	result, err := r.CommentsService.AddComment(ctx, &pbComments.AddCommentRequest{
+		Text: input.Text, ShowId: input.ShowID, UserId: input.UserID,
+	})
+
+	if err != nil {
+		return nil, fmt.Errorf(err.Error())
+	}
+
+	return &model.AddCommentPayload{Comment: &model.Comment{ID: result.Id, UserID: result.UserId, ShowID: result.ShowId, Text: result.Text}}, nil
 }

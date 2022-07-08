@@ -3,7 +3,9 @@
 package model
 
 type AddCommentInput struct {
-	Text string `json:"text"`
+	Text   string `json:"text"`
+	ShowID string `json:"showId"`
+	UserID string `json:"userId"`
 }
 
 type AddCommentPayload struct {

@@ -9,7 +9,7 @@ import (
 )
 
 type Resolver struct {
-	CommentsService *commentsService.CommentClient
+	CommentsService commentsService.CommentClient
 	Redis           *goredis.Client
 	ShowsRepository map[string]*model.Show
 	UsersRepository map[string]*model.User

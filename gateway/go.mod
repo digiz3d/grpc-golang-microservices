@@ -9,6 +9,7 @@ require (
 	github.com/gorilla/websocket v1.5.0
 	github.com/rs/cors v1.8.2
 	github.com/vektah/gqlparser/v2 v2.4.5
+	google.golang.org/grpc v1.47.0
 	google.golang.org/protobuf v1.28.0
 	services/comments v1.0.0
 )
@@ -34,6 +35,5 @@ require (
 	golang.org/x/tools v0.1.10 // indirect
 	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	google.golang.org/genproto v0.0.0-20220707150051-590a5ac7bee1 // indirect
-	google.golang.org/grpc v1.47.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )

@@ -35,7 +35,7 @@ func newServer() *commentsServer {
 
 func main() {
 	port := os.Getenv("PORT")
-	netListener, err := net.Listen("tcp", "localhost:"+port)
+	netListener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		return
 	}

@@ -7,6 +7,8 @@ type Comment {
 
 input AddCommentInput {
   text: String!
+  showId: ID!
+  userId: ID!
 }
 
 type AddCommentPayload {

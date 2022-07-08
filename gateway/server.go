@@ -64,7 +64,7 @@ func main() {
 	commentServiceClient := pbComments.NewCommentClient(connCommentService)
 
 	srv := handler.New(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{
-		CommentsService: &commentServiceClient,
+		CommentsService: commentServiceClient,
 		Redis:           redis,
 		ShowsRepository: make(map[string]*model.Show),
 		UsersRepository: make(map[string]*model.User),
