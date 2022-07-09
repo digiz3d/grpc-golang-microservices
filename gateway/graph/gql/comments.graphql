@@ -18,3 +18,15 @@ type AddCommentPayload {
 extend type Mutation {
   addComment(input: AddCommentInput!): AddCommentPayload!
 }
+
+input OnCommentAddedInput {
+  showId: ID!
+}
+
+type OnCommentAddedPayload {
+  comment: Comment!
+}
+
+extend type Subscription {
+  onCommentAdded(input: OnCommentAddedInput!): OnCommentAddedPayload!
+}

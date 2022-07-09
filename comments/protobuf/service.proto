@@ -5,7 +5,8 @@ package comments;
 option go_package = "protobuf/generated";
 
 service Comment {
-    rpc AddComment (AddCommentRequest) returns (AddCommentReply) {}
+    rpc AddComment (AddCommentRequest) returns (AddedComment) {}
+    rpc OnCommentAdded (OnCommentAddedRequest) returns (stream AddedComment) {}
 }
 
 message AddCommentRequest {
@@ -14,9 +15,14 @@ message AddCommentRequest {
     string text = 3;
 }
 
-message AddCommentReply {
+message AddedComment {
     string id = 1;
     string showId = 2;
     string userId = 3;
     string text = 4;
 }
+
+message OnCommentAddedRequest {
+    string showId = 1;
+}
+

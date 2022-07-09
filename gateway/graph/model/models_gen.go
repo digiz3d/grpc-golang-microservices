@@ -36,3 +36,11 @@ type CreateUserInput struct {
 type CreateUserPayload struct {
 	User *User `json:"user"`
 }
+
+type OnCommentAddedInput struct {
+	ShowID string `json:"showId"`
+}
+
+type OnCommentAddedPayload struct {
+	Comment *Comment `json:"comment"`
+}

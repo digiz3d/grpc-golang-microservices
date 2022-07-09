@@ -20,8 +20,11 @@ services:
       dockerfile: ./comments/Dockerfile
     ports:
       - "3001:3001"
+    links:
+      - redis
     environment:
       - PORT=3001
+      - REDIS_ADDR=redis:6379
   redis:
     image: redis
     ports:
