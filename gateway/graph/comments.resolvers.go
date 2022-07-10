@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"gateway/graph/model"
 	"io"
-	pbComments "services/comments/protobuf/generated"
+	pbComments "services/comments/pb/generated"
 )
 
 func (r *mutationResolver) AddComment(ctx context.Context, input model.AddCommentInput) (*model.AddCommentPayload, error) {

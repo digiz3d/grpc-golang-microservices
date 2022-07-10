@@ -24,4 +24,4 @@ go.work
 graph/generated
 gateway
 
-protobuf/generated
+pb/generated

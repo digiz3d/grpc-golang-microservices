@@ -13,7 +13,7 @@ import (
 	"gateway/graph/generated"
 	"gateway/graph/model"
 
-	pbComments "services/comments/protobuf/generated"
+	pbComments "services/comments/pb/generated"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/handler/extension"

@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"gateway/graph/generated"
 	"gateway/graph/model"
-	protogen "gateway/protobuf/generated"
+	protogen "gateway/pb/generated"
 	"log"
 
 	"github.com/google/uuid"

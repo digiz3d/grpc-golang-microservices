@@ -1,7 +1,7 @@
 package main
 
 import (
-	pb "comments/protobuf/generated"
+	pb "comments/pb/generated"
 	"context"
 	"fmt"
 	"net"

@@ -3,7 +3,7 @@ package graph
 import (
 	"gateway/graph/model"
 
-	commentsService "services/comments/protobuf/generated"
+	commentsService "services/comments/pb/generated"
 
 	goredis "github.com/go-redis/redis/v9"
 )
